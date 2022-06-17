@@ -1,0 +1,111 @@
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: 'Comfortaa', sans-serif;
+    margin: 0px;
+}
+
+div#change_username, section#input_zone {
+    border: 5px outset #5DCFC3;
+}
+
+div#change_username {
+    height: 3%;
+    display: inline-block;
+    background-color: #009E8E;
+}
+
+section#chatroom {
+    border: 5px inset #5DCFC3;
+    height: 85%;
+    overflow: auto;
+}
+
+section#input_zone {
+    height: 7%;
+    text-align: center;
+    background-color: #34CFBE;
+}
+
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+input#username {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+input#message {
+    display: inline-block;
+    width: 88%;
+    height: 70%;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2vh;
+    
+}
+
+button#send_message {
+    display: inline-block;
+    height: 70%;
+    width: 10%;
+}
+
+div.message {
+    margin: 5px;
+    width: 50%;
+    height: auto;
+    font-size: 2vh;
+    font-family: 'Comfortaa', sans-serif;
+    padding: 1vh;
+    border-radius: 6vh;
+    position: relative;
+    
+}
+
+#data{
+    position: relative;
+    left: 5vh;
+    top: 1vh;
+}
+
+.message:nth-child(even) {
+    background-color: #81DAF5;
+}
+
+.message:nth-child(odd) {
+    background-color: #81BEF7;
+}
+
+#_data{
+    text-align: right;
+    position: relative;
+    top: -2vh;
+    left: -10vh;
+}
