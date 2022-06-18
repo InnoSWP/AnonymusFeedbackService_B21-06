@@ -5,7 +5,7 @@ const express = require('express'),
     {compile} = require("ejs"),
     client = new MongoClient('mongodb+srv://qwerty:qwerty123@cluster0.j7jmx.mongodb.net/?retryWrites=true&w=majority'),
     url = 'mongodb+srv://qwerty:qwerty123@cluster0.j7jmx.mongodb.net/?retryWrites=true&w=majority',
-    databasename = "test";
+    databasename = "test"
 
 
 
