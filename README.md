@@ -21,7 +21,9 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 * Fast messages
 
 
-
+## License
+[Link to MIT License](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/LICENSE)
 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
 [contributors-url]: https://github.com/feedback/AnonymusFeedbackService_B21-06/graphs/contributors
+
