@@ -32,7 +32,7 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 
 <!-- additional links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
-[contributors-url]: https://github.com/feedback/InnoSWP/AnonymusFeedbackService_B21-06/graphs/contributors
+[contributors-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/issues/graphs/contributors
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
 [issues-url]: https://github.com/feedback/InnoSWP/AnonymusFeedbackService_B21-06/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
