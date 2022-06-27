@@ -1,6 +1,6 @@
 # Anonymous Feedback Service
 
-##Description
+## Description
 
 This project represents an app where people can collect feedback. In this app teacher (or anyone who wants) can create a session related to their class to collect feedback from students. The feedback can be sent right during the class if, for example, someone wants to notify teacher with some problems. Or right after class if they want to rate a lesson and send a useful feedback for teacher to work on.
 
