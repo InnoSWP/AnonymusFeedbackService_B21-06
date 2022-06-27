@@ -1,5 +1,7 @@
 # Anonymous Feedback Service
 
+[![Contributors][contributors-shield]][contributors-url]
+
 ## Description
 
 This project represents an app where people can collect feedback. In this app teacher (or anyone who wants) can create a session related to their class to collect feedback from students. The feedback can be sent right during the class if, for example, someone wants to notify teacher with some problems. Or right after class if they want to rate a lesson and send a useful feedback for teacher to work on.
@@ -17,3 +19,9 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 * Anonymity
 * Reactions and ratings
 * Fast messages
+
+
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/feedback/AnonymusFeedbackService_B21-06/graphs/contributors
