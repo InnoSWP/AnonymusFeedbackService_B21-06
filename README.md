@@ -36,5 +36,5 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
 [contributors-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
-[license-url]: https://github.com/feedback/InnoSWP/AnonymusFeedbackService_B21-06/blob/master/LICENSE.txt
+[license-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/master/LICENSE.txt
 
