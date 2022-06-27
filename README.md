@@ -16,3 +16,4 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 * Link generation
 * Anonymity
 * Reactions and ratings
+* Fast messages
