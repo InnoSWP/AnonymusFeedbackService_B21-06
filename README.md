@@ -24,4 +24,4 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/feedback/AnonymusFeedbackService_B21-06/graphs/contributors
+[contributors-url]: https://github.com/feedback/AnonymusFeedbackService_B21-06/contributors
