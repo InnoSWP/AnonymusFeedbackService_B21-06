@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {fixNumbs} from "./../../services/DataGenerator"
 import { IListElem } from "./LkSessionsList";
 
 const LkListElem = ({
@@ -14,10 +15,10 @@ const LkListElem = ({
       <a>
         <div className="LeftSide">
           <div className="LeftSideWrapper">
-            <h3>MVP and Deciding What to Build</h3>
-            <span>05/30/2022</span>
+            <h3>{TitleCourse}</h3>
+            <span>{fixNumbs(month)}/{fixNumbs(day)}/{year}</span>
           </div>
-          <h4>[SUM 22] Software Project</h4>
+          <h4>{TitleSession}</h4>
         </div>
         <div className="RightSide">
           <button>View Details</button>

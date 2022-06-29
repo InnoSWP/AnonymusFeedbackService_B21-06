@@ -7,6 +7,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeInMotion } from "../../motions/FadeMotion";
+import axios from "axios";
+import {back_url} from "../../vars";
+import { setUser } from "./../../redux/slices/UserSlice"
+import {useDispatch} from "react-redux";
+import { useRouter } from 'next/router';
+
 
 interface ILoginForm {
   activeTab: tabs;
@@ -38,8 +44,19 @@ const LoginForm = ({ activeTab, setActiveTab }: ILoginForm) => {
     resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const dispatch = useDispatch()
+
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<Inputs> = async (info) => {
+    try {
+      const { data } = await axios.post(`${back_url}/auth/login`, { email: info.Email, password: info.Password })
+      dispatch(setUser(data.token))
+      localStorage.setItem('token', data.token)
+      router.push('/lk')
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   return (

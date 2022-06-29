@@ -3,10 +3,12 @@ import { AppThunk } from "../store";
 
 export interface appState {
     isLoading: boolean;
+    isFetch: boolean;
 }
 
 const initialState: appState = {
-    isLoading: true
+    isLoading: true,
+    isFetch: false
 };
 
 export const appReducer = createSlice({
@@ -15,10 +17,13 @@ export const appReducer = createSlice({
     reducers: {
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.isLoading = action.payload;
+        },
+        setIsFetch: (state, action: PayloadAction<boolean>) => {
+            state.isFetch = action.payload;
         }
     },
     extraReducers: (builder) => {}
 });
-export const { setLoading } = appReducer.actions;
+export const { setLoading, setIsFetch } = appReducer.actions;
 
 export default appReducer.reducer;

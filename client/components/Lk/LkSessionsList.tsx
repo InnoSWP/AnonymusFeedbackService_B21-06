@@ -1,5 +1,11 @@
 import Link from "next/link";
 import LkListElem from "./LkListElem";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {back_url} from "../../vars";
+import useTypedSelector from "../../hooks/useTypedSelector";
+import {setIsFetch} from "./../../redux/slices/AppSlice"
+import {useDispatch} from "react-redux";
 
 export interface IListElem {
   id: number;
@@ -11,63 +17,44 @@ export interface IListElem {
 }
 
 const LkSessionsList = () => {
-  const Sessions: IListElem[] = [
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
-    },
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
-    },
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
-    },
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
-    },
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
-    },
-    {
-      id: 1,
-      TitleCourse: "MVP and Deciding What to Build",
-      TitleSession: "[SUM 22] Software Project",
-      year: 2020,
-      month: 10,
-      day: 31
+  const [sessions, setSessions] = useState<IListElem[]>([])
+  const isFetch = useTypedSelector(state => state.app.isFetch)
+  const dispatch = useDispatch()
+
+  async function fetchSessions() {
+    try {
+      const {data} = await axios.get(`${back_url}/session/`)
+      setSessions(data)
+    } catch (e) {
+      console.log(e)
     }
-  ];
+  }
+
+  useEffect(() => {
+    fetchSessions();
+  }, [])
+
+  useEffect(() => {
+    if (isFetch) {
+      fetchSessions().then(() => {
+        dispatch(setIsFetch(false))
+      })
+    }
+  }, [isFetch])
 
   return (
     <section className="LkSessionList">
       <div className="container">
-        <h2>Active sessions:</h2>
+        <h2>All sessions:</h2>
         <ul>
-          {Sessions.map((el, index) => (
+          {sessions.length == 0
+            ? <span>No Active sessions yet</span>
+            : sessions?.sort(function(row1, row2) {
+              const firstDate = new Date(row1.year, row1.month, row1.day)
+              const secondDate = new Date(row2.year, row2.month, row2.day)
+              // @ts-ignore
+              return firstDate - secondDate;
+            }).map((el, index) => (
             <li className={"LkSessionListElem"} key={"LkListElem" + index}>
               <LkListElem
                 id={el.id}

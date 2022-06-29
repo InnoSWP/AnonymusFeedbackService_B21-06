@@ -5,6 +5,22 @@
   padding: $px12
   background-color: $accentSecond
   display: flex
+  .ExitWrapper
+    display: flex
+    align-items: center
+    & > div
+      display: flex
+      align-items: center
+      cursor: pointer
+      svg
+        fill: #fff
+        path
+          fill: #fff
+      span
+        display: block
+        margin-left: calc(#{$index} * 0.5)
+        color: #fff
+        font-weight: 700
   .data
     display: flex
     align-items: center

@@ -44,3 +44,10 @@ export const years = () => {
   }
   return result;
 };
+
+export const fixNumbs = (numb: number) => {
+  if (String(numb).length == 1) {
+    return "0" + String(numb)
+  }
+  return numb
+}

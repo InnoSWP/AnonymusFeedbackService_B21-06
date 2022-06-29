@@ -3,6 +3,11 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Select from "react-select";
 import { days, months, years } from "../../services/DataGenerator";
+import axios from "axios";
+import {back_url} from "../../vars";
+import {setIsFetch} from "./../../redux/slices/AppSlice"
+import useTypedSelector from "../../hooks/useTypedSelector";
+import {useDispatch} from "react-redux";
 
 interface Inputs {
   TitleCourse: string;
@@ -19,14 +24,22 @@ const LkCreateSession = () => {
     // resolver: yupResolver(schema)
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const result = {
-      ...data,
-      day: monthSelect.current?.getValue()[0].value,
-      month: monthSelect.current?.getValue()[0].value,
-      year: monthSelect.current?.getValue()[0].value
-    };
-    console.log(result);
+  const dispatch = useDispatch()
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const result = {
+        ...data,
+        day: daySelect.current?.getValue()[0].value,
+        month: monthSelect.current?.getValue()[0].value,
+        year: yearSelect.current?.getValue()[0].value
+      };
+      const request = await axios.post(`${back_url}/session/`, { ...result })
+      dispatch(setIsFetch(true))
+      console.log(request)
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   const daySelect = useRef<any>(null);

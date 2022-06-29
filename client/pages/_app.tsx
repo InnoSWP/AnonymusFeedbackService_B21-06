@@ -8,6 +8,8 @@ import { makeStore } from "../redux/store";
 import "./../styles/sections/EnterSection.sass";
 import "./../styles/sections/Header.sass";
 import "./../styles/sections/LkMainPage.sass";
+import "./../styles/sections/SessionPage.sass";
+import "../styles/components/Loader.scss";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;

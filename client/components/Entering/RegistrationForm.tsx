@@ -7,6 +7,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FadeInMotion } from "../../motions/FadeMotion";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import axios from "axios";
+import { back_url } from "../../vars";
+import { setUser } from "../../redux/slices/UserSlice";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 
 interface IRegisterForm {
   activeTab: tabs;
@@ -25,11 +30,11 @@ const schema = yup
       .string()
       .email("Incorrect Email")
       .required("Email can`t be empty"),
+    Password: yup.string().required("Password can`t be empty"),
     RepeatPassword: yup
       .string()
-      .oneOf([yup.ref("Password"), null], "Your passwords do not match.")
+      .oneOf([yup.ref('Password'), null], 'Passwords must match')
       .required("Can`t be empty"),
-    Password: yup.string().required("Password can`t be empty")
   })
   .required();
 
@@ -44,8 +49,19 @@ const RegistrationForm = ({ activeTab, setActiveTab }: IRegisterForm) => {
     mode: "onSubmit"
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+  const dispatch = useDispatch()
+
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<Inputs> = async (info) => {
+    try {
+      const { data } = await axios.post(`${back_url}/auth/registration`, { email: info.Email, password: info.Password })
+      dispatch(setUser(data.token))
+      localStorage.setItem('token', data.token)
+      router.push('/lk')
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   return (
@@ -97,7 +113,7 @@ const RegistrationForm = ({ activeTab, setActiveTab }: IRegisterForm) => {
               <PasswordSvg />
               <input
                 placeholder="Repeat your password"
-                {...register("Password", { required: true })}
+                {...register("RepeatPassword", { required: true })}
                 type="password"
               />
             </motion.div>
