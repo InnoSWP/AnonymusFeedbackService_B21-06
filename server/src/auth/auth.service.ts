@@ -1,5 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { CreateUserDto } from '../users/dto/create-user.dto';
+import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from 'src/users/user.model';
 import { UsersService } from '../users/users.service';
@@ -16,15 +15,12 @@ export class AuthService {
   ) {}
 
   async login(dto: LoginUserDto) {
-    // if (candidate) {
-    //   throw new HttpException(
-    //     'Пользователя с таким email существует',
-    //     HttpStatus.BAD_REQUEST,
-    //   );
-    // }
+    console.log("here")
+    const user = await this.validateUser(dto)
+    return this.generateToken(user)
   }
 
-  async registration(dto: CreateUserDto) {
+  async registration(dto: LoginUserDto) {
     const candidate = await this.usersService.getUserByEmail(dto.email);
     if (candidate) {
       throw new HttpException(
@@ -40,13 +36,35 @@ export class AuthService {
     return this.generateToken(user);
   }
 
-  async generateToken(user: User) {
+  async isTokenValid(token: string) {
+    try {
+      const user = this.jwtService.verify(token, {secret: process.env.SECRET_KEY})
+      if (user.email) {
+        return {isAuth: true}
+      }
+    } catch (e) {
+      return {isAuth: false}
+    }
+  }
+
+  private async generateToken(user: User) {
     const payload = {
-      login: user.login,
       email: user.email,
       id: user.id,
       roles: user.roles,
     };
     return { token: this.jwtService.sign(payload) };
+  }
+
+  private async validateUser(userDto: LoginUserDto) {
+    const user = await this.usersService.getUserByEmail(userDto.email);
+    if (!user) {
+      throw new UnauthorizedException({message: 'Некорректный емайл или пароль'})
+    }
+    const passwordEquals = await bcrypt.compare(userDto.password, user.password);
+    if (user && passwordEquals) {
+      return user;
+    }
+    throw new UnauthorizedException({message: 'Некорректный емайл или пароль'})
   }
 }

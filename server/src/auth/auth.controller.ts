@@ -1,5 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserDto } from '../users/dto/create-user.dto';
+import { Body, Controller, Get, Post, Req, Request } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LoginUserDto } from '../users/dto/login-user.dto';
 
@@ -13,7 +12,14 @@ export class AuthController {
   }
 
   @Post('/registration')
-  registration(@Body() dto: CreateUserDto) {
+  registration(@Body() dto: LoginUserDto) {
     return this.authService.registration(dto);
+  }
+
+  @Get('/check')
+  check(@Req() req: Request) {
+    console.log(req.headers)
+    // @ts-ignore
+    return this.authService.isTokenValid(req.headers.authorization.split(' ')[1])
   }
 }

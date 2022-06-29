@@ -14,7 +14,6 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthController = void 0;
 const common_1 = require("@nestjs/common");
-const create_user_dto_1 = require("../users/dto/create-user.dto");
 const auth_service_1 = require("./auth.service");
 const login_user_dto_1 = require("../users/dto/login-user.dto");
 let AuthController = class AuthController {
@@ -26,6 +25,10 @@ let AuthController = class AuthController {
     }
     registration(dto) {
         return this.authService.registration(dto);
+    }
+    check(req) {
+        console.log(req.headers);
+        return this.authService.isTokenValid(req.headers.authorization.split(' ')[1]);
     }
 };
 __decorate([
@@ -39,9 +42,16 @@ __decorate([
     (0, common_1.Post)('/registration'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
+    __metadata("design:paramtypes", [login_user_dto_1.LoginUserDto]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "registration", null);
+__decorate([
+    (0, common_1.Get)('/check'),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "check", null);
 AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])

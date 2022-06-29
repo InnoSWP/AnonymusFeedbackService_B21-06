@@ -1,4 +1,4 @@
 export declare class LoginUserDto {
-    readonly logData: string;
+    readonly email: string;
     readonly password: string;
 }

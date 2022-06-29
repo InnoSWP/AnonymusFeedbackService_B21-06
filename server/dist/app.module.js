@@ -13,9 +13,11 @@ const users_module_1 = require("./users/users.module");
 const config_1 = require("@nestjs/config");
 const user_model_1 = require("./users/user.model");
 const roles_module_1 = require("./roles/roles.module");
-const role_module_1 = require("./roles/role.module");
+const role_model_1 = require("./roles/role.model");
 const user_roles_model_1 = require("./roles/user-roles.model");
 const auth_module_1 = require("./auth/auth.module");
+const session_module_1 = require("./session/session.module");
+const session_model_1 = require("./session/session.model");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -33,13 +35,14 @@ AppModule = __decorate([
                 username: process.env.PG_USER,
                 password: process.env.PG_PASSWORD,
                 database: process.env.PG_DB,
-                models: [user_model_1.User, role_module_1.Role, user_roles_model_1.UserRoles],
+                models: [user_model_1.User, role_model_1.Role, user_roles_model_1.UserRoles, session_model_1.Session],
                 autoLoadModels: true,
                 synchronize: true,
             }),
             users_module_1.UsersModule,
             roles_module_1.RolesModule,
             auth_module_1.AuthModule,
+            session_module_1.SessionModule,
         ],
     })
 ], AppModule);

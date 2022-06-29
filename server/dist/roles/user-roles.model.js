@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserRoles = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const user_model_1 = require("../users/user.model");
-const role_module_1 = require("./role.module");
+const role_model_1 = require("./role.model");
 let UserRoles = class UserRoles extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -25,16 +25,16 @@ __decorate([
     __metadata("design:type", Number)
 ], UserRoles.prototype, "id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.ForeignKey)(() => role_module_1.Role),
+    (0, sequelize_typescript_1.ForeignKey)(() => role_model_1.Role),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.NUMBER,
+        type: sequelize_typescript_1.DataType.INTEGER,
     }),
     __metadata("design:type", Number)
 ], UserRoles.prototype, "roleId", void 0);
 __decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
     (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.NUMBER,
+        type: sequelize_typescript_1.DataType.INTEGER,
     }),
     __metadata("design:type", Number)
 ], UserRoles.prototype, "userId", void 0);

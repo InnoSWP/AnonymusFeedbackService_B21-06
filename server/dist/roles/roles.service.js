@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RolesService = void 0;
 const common_1 = require("@nestjs/common");
-const role_module_1 = require("./role.module");
+const role_model_1 = require("./role.model");
 const sequelize_1 = require("@nestjs/sequelize");
 let RolesService = class RolesService {
     constructor(roleRepository) {
@@ -32,7 +32,7 @@ let RolesService = class RolesService {
 };
 RolesService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(role_module_1.Role)),
+    __param(0, (0, sequelize_1.InjectModel)(role_model_1.Role)),
     __metadata("design:paramtypes", [Object])
 ], RolesService);
 exports.RolesService = RolesService;

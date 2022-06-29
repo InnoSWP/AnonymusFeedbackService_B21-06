@@ -12,7 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const user_roles_model_1 = require("../roles/user-roles.model");
-const role_module_1 = require("../roles/role.module");
+const role_model_1 = require("../roles/role.model");
+const session_model_1 = require("../session/session.model");
 let User = class User extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -31,23 +32,7 @@ __decorate([
         allowNull: false,
     }),
     __metadata("design:type", String)
-], User.prototype, "login", void 0);
-__decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        unique: true,
-        allowNull: false,
-    }),
-    __metadata("design:type", String)
 ], User.prototype, "email", void 0);
-__decorate([
-    (0, sequelize_typescript_1.Column)({
-        type: sequelize_typescript_1.DataType.STRING,
-        unique: true,
-        allowNull: true,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "phone", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
@@ -65,13 +50,25 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
+        defaultValue: "Anonimus",
+        allowNull: true,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "name", void 0);
+__decorate([
+    (0, sequelize_typescript_1.Column)({
+        type: sequelize_typescript_1.DataType.STRING,
     }),
     __metadata("design:type", String)
 ], User.prototype, "banReason", void 0);
 __decorate([
-    (0, sequelize_typescript_1.BelongsToMany)(() => role_module_1.Role, () => user_roles_model_1.UserRoles),
+    (0, sequelize_typescript_1.BelongsToMany)(() => role_model_1.Role, () => user_roles_model_1.UserRoles),
     __metadata("design:type", Array)
 ], User.prototype, "roles", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => session_model_1.Session),
+    __metadata("design:type", Array)
+], User.prototype, "sessions", void 0);
 User = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'users' })
 ], User);

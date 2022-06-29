@@ -1,18 +1,18 @@
 import { Model } from 'sequelize-typescript';
-import { Role } from '../roles/role.module';
+import { Role } from '../roles/role.model';
+import { Session } from "../session/session.model";
 interface UserCreationAttributes {
-    login: string;
     email: string;
     password: string;
 }
 export declare class User extends Model<User, UserCreationAttributes> {
     id: number;
-    login: string;
     email: string;
-    phone: string;
     password: string;
     banned: boolean;
+    name: string;
     banReason: string;
     roles: Role[];
+    sessions: Session[];
 }
 export {};
