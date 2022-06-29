@@ -1,0 +1,17 @@
+@import "./vars"
+
+@mixin centerMix
+  display: flex
+  align-items: center
+  justify-content: center
+
+@mixin transition
+  transition: $trasition
+  transition-timing-function: $transition-tf
+
+@mixin oftenBtn
+  background-color: $accentSecond
+  color: #ffffff
+  font-size: $px16
+  padding: calc(#{$index} * 0.5)
+  border-radius: calc(#{$index} * 0.3)

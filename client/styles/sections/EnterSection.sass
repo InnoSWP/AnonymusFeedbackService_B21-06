@@ -1,0 +1,64 @@
+@import "./../mixins/mixins"
+@import "./../mixins/vars"
+
+.EnteringSection
+  height: 100vh
+  display: flex
+  align-items: center
+  justify-content: center
+  .EnteringSectionWrapper
+    text-align: center
+    .VkSvg
+      width: calc(#{$index} * 2.5)
+      margin-bottom: calc(#{$index})
+
+.LoginWindow, .RegisterWindow
+  width: calc(#{$index} * 20)
+  border-radius: calc(#{$index} * 3 / 4)
+  object-fit: contain
+  padding: calc(#{$index} * 0.6) calc(#{$index} * 1.3)
+  background-color: #fff
+  @include transition
+  form
+    span
+      color: #8E8E8E
+      font-size: $px12
+    h3
+      font-size: $px24
+      font-weight: 700
+      color: $accentSecond
+      margin: $px20 0 calc(#{$px20} * 2.5) 0
+    .errorLabel
+      color: $accentSecond
+      font-size: $px12
+      text-align: left
+      margin-bottom: calc(#{$index} * .3)
+      position: absolute
+      top: calc(#{$px12} * -1.1)
+    p.switcher
+      font-size: $px16
+      span
+        font-size: $px16
+        color: $accentSecond
+        cursor: pointer
+    .inputWrapper
+      position: relative
+      align-items: center
+      svg
+        position: absolute
+        left: $px12
+        top: calc(50% - #{$px12} / 2)
+        height: $px12
+
+    input
+      width: 100%
+      margin-bottom: $px20
+      padding-left: calc(#{$px12} * 3)
+    button
+      width: 100%
+      background-color: $accentSecond
+      border-radius: calc(#{$index} * 3 / 6)
+      color: #fff
+      padding: calc(#{$index} * 3 / 5)
+      margin-bottom: $px20
+

@@ -1,0 +1,20 @@
+@import "./../mixins/vars"
+@import "./../mixins/mixins"
+
+.Header
+  padding: $px12
+  background-color: $accentSecond
+  display: flex
+  .data
+    display: flex
+    align-items: center
+    margin-left: auto
+    span
+      font-weight: 600
+      font-size: $px20
+      margin-right: $px20
+      display: block
+    img
+      width: calc(#{$index} * 1.5)
+      height: calc(#{$index} * 1.5)
+      border-radius: 50%
