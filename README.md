@@ -2,6 +2,7 @@
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
+[![Project][project-shield]][project-url]
 [![MIT License][license-shield]][license-url]
 
 ## Description
@@ -35,6 +36,8 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 [contributors-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/issues/graphs/contributors
 [issues-shield]: https://img.shields.io/github/issues/InnoSWP/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
 [issues-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/issues
+[project-shield]: https://img.shields.io/github/project/InnoSWP/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
+[project-url]: https://github.com/orgs/InnoSWP/projects/61/views/1
 [license-shield]: https://img.shields.io/github/license/InnoSWP/AnonymusFeedbackService_B21-06.svg?style=for-the-badge
 [license-url]: https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/LICENSE
 
