@@ -2,8 +2,8 @@
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
-[![gg][gg-shield]][gg-url]
 [![MIT License][license-shield]][license-url]
+<br>[![gg][gg-shield]][gg-url]
 
 ## Description
 
