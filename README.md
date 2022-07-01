@@ -26,6 +26,25 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 * Fast messages
 
 
+## Project Installation
+
+
+
+## Frameworks or technologies used
+For this project we used
+* HTML
+* CSS
+* JS
+* React library for JS
+* next JS framework for react
+* express JS 
+* postgreSQL
+
+## Badges
+
+
+
+
 ## License
 [Link to MIT License](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/LICENSE)
 
