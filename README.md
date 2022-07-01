@@ -35,7 +35,7 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 Our idea of this project is the web application, so here is the link for our app: https://http.cat/404
 
 
-## Frameworks or technologies used
+## Frameworks and technologies used
 For this project we used
 * HTML
 * CSS
