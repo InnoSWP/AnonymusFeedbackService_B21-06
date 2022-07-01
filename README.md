@@ -32,6 +32,7 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 
 ## Project Installation
 
+Our idea of this project is the web application, so here is the link for that app: https://http.cat/404
 
 
 ## Frameworks or technologies used
