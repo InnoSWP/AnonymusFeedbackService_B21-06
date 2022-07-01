@@ -40,7 +40,7 @@ For this project we used
 * CSS
 * JS
 * React library for JS
-* next JS framework for react
+* next JS framework for React JS
 * express JS 
 * postgreSQL
 
