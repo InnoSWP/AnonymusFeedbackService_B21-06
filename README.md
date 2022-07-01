@@ -40,6 +40,7 @@ For this project we used
 * HTML
 * CSS
 * JS
+* Typescript 
 * React library for JS
 * next JS framework for React JS
 * express JS 
