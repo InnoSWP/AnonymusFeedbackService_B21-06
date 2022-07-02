@@ -3,9 +3,9 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-##
-[![gg][gg-shield]][gg-url]
-##
+
+<!-- [![gg][gg-shield]][gg-url] -->
+
 
 ## Description
 
