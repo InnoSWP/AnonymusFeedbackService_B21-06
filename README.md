@@ -31,9 +31,21 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 
 
 ## Project Installation
-
-Our idea of this project is the web application, so here is the link for our app: https://http.cat/404
-
+First of all, you need to install __npm__ in both _.\client\_ and _.\server\_ directories:
+```
+npm i
+```
+Then you should start frontend and backend separetly.
+Start backend with the following commands from the directory _.\server\_ through the command line:
+```
+npm run build
+npm run start:dev
+```
+And then start client from the directory _.\client\_:
+```
+npm run dev
+```
+The only thing you need to do to use the app is to connect it to a database (we used postgreSQL, so you can use it as well).
 
 ## Frameworks and technologies used
 For this project we used
