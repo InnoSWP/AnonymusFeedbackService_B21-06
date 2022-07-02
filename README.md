@@ -31,17 +31,17 @@ Firstly, user needs to create an account or sign in. Then you go to dashboard an
 
 
 ## Project Installation
-First of all, you need to install __npm__ in both _.\client\_ and _.\server\_ directories:
+First of all, you need to install **npm** in both *.\client\* and *.\server\* directories:
 ```
 npm i
 ```
 Then you should start frontend and backend separetly.
-Start backend with the following commands from the directory _.\server\_ through the command line:
+Start backend with the following commands from the directory *.\server\* through the command line:
 ```
 npm run build
 npm run start:dev
 ```
-And then start client from the directory _.\client\_:
+And then start client from the directory *.\client\*:
 ```
 npm run dev
 ```
