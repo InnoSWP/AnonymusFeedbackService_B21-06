@@ -16,7 +16,28 @@ So if student is having any troubles pointing some problems to teacher they can 
 
 
 ## Demo
+Registration and Log in section:
+![pic1](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic1.png)
 
+
+Dashboard:
+![pic2](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic2.png)
+
+
+Detaild about the session:
+![pic3](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic3.png)
+
+
+Feedback form for the students:
+![pic4](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic4.png)
+
+
+Choose anonymity mode:
+![pic5](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic5.png)
+
+
+Feedback added to a teacher's page:
+![pic6](https://github.com/InnoSWP/AnonymusFeedbackService_B21-06/blob/main/imgs/pic6.png)
 
 
 ## How to use
