@@ -26,7 +26,6 @@ let AuthService = class AuthService {
         this.jwtService = jwtService;
     }
     async login(dto) {
-        console.log("here");
         const user = await this.validateUser(dto);
         return this.generateToken(user);
     }
@@ -41,7 +40,7 @@ let AuthService = class AuthService {
     }
     async isTokenValid(token) {
         try {
-            const user = this.jwtService.verify(token, { secret: process.env.SECRET_KEY });
+            const user = this.jwtService.verify(token);
             if (user.email) {
                 return { isAuth: true };
             }
@@ -61,13 +60,17 @@ let AuthService = class AuthService {
     async validateUser(userDto) {
         const user = await this.usersService.getUserByEmail(userDto.email);
         if (!user) {
-            throw new common_1.UnauthorizedException({ message: 'Некорректный емайл или пароль' });
+            throw new common_1.UnauthorizedException({
+                message: 'Некорректный емайл или пароль',
+            });
         }
         const passwordEquals = await bcrypt.compare(userDto.password, user.password);
         if (user && passwordEquals) {
             return user;
         }
-        throw new common_1.UnauthorizedException({ message: 'Некорректный емайл или пароль' });
+        throw new common_1.UnauthorizedException({
+            message: 'Некорректный емайл или пароль',
+        });
     }
 };
 AuthService = __decorate([

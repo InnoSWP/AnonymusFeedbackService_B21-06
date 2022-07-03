@@ -18,8 +18,10 @@ export class AuthController {
 
   @Get('/check')
   check(@Req() req: Request) {
-    console.log(req.headers)
-    // @ts-ignore
-    return this.authService.isTokenValid(req.headers.authorization.split(' ')[1])
+    console.log(req.headers);
+    return this.authService.isTokenValid(
+      // @ts-ignore
+      req.headers.authorization.split(' ')[1],
+    );
   }
 }

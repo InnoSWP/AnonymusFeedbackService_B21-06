@@ -18,6 +18,11 @@ const user_roles_model_1 = require("./roles/user-roles.model");
 const auth_module_1 = require("./auth/auth.module");
 const session_module_1 = require("./session/session.module");
 const session_model_1 = require("./session/session.model");
+const message_module_1 = require("./message/message.module");
+const message_model_1 = require("./message/message.model");
+const events_1 = require("events");
+const nest_emitter_1 = require("nest-emitter");
+const message_gateway_1 = require("./message.gateway");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -35,7 +40,7 @@ AppModule = __decorate([
                 username: process.env.PG_USER,
                 password: process.env.PG_PASSWORD,
                 database: process.env.PG_DB,
-                models: [user_model_1.User, role_model_1.Role, user_roles_model_1.UserRoles, session_model_1.Session],
+                models: [user_model_1.User, role_model_1.Role, user_roles_model_1.UserRoles, session_model_1.Session, message_model_1.Message],
                 autoLoadModels: true,
                 synchronize: true,
             }),
@@ -43,6 +48,9 @@ AppModule = __decorate([
             roles_module_1.RolesModule,
             auth_module_1.AuthModule,
             session_module_1.SessionModule,
+            message_module_1.MessageModule,
+            message_gateway_1.MessageGateway,
+            nest_emitter_1.NestEmitterModule.forRoot(new events_1.EventEmitter())
         ],
     })
 ], AppModule);

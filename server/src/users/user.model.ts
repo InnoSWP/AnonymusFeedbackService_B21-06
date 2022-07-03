@@ -1,13 +1,15 @@
 import {
   BelongsToMany,
   Column,
-  DataType, HasMany,
+  DataType,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { UserRoles } from 'src/roles/user-roles.model';
 import { Role } from '../roles/role.model';
-import {Session} from "../session/session.model";
+import { Session } from '../session/session.model';
+import { Message } from '../message/message.model';
 
 interface UserCreationAttributes {
   email: string;
@@ -45,7 +47,7 @@ export class User extends Model<User, UserCreationAttributes> {
 
   @Column({
     type: DataType.STRING,
-    defaultValue: "Anonimus",
+    defaultValue: 'Anonimus',
     allowNull: true,
   })
   name: string;
@@ -60,4 +62,7 @@ export class User extends Model<User, UserCreationAttributes> {
 
   @HasMany(() => Session)
   sessions: Session[];
+
+  @HasMany(() => Message)
+  messages: Message[];
 }

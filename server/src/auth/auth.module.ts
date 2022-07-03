@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { SequelizeModule } from '@nestjs/sequelize';
@@ -11,13 +11,14 @@ import { JwtModule } from '@nestjs/jwt';
   providers: [AuthService],
   imports: [
     SequelizeModule.forFeature([User]),
-    UsersModule,
+    forwardRef(() => UsersModule),
     JwtModule.register({
-      secret: process.env.PRIVATE_KEY || 'secret',
+      secret: process.env.SECRET_KEY || 'secret',
       signOptions: {
         expiresIn: '24h',
       },
     }),
   ],
+  exports: [AuthService, JwtModule],
 })
 export class AuthModule {}

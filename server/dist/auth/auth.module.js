@@ -22,14 +22,15 @@ AuthModule = __decorate([
         providers: [auth_service_1.AuthService],
         imports: [
             sequelize_1.SequelizeModule.forFeature([user_model_1.User]),
-            users_module_1.UsersModule,
+            (0, common_1.forwardRef)(() => users_module_1.UsersModule),
             jwt_1.JwtModule.register({
-                secret: process.env.PRIVATE_KEY || 'secret',
+                secret: process.env.SECRET_KEY || 'secret',
                 signOptions: {
                     expiresIn: '24h',
                 },
             }),
         ],
+        exports: [auth_service_1.AuthService, jwt_1.JwtModule],
     })
 ], AuthModule);
 exports.AuthModule = AuthModule;

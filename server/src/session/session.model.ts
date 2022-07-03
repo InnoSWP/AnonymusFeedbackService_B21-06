@@ -1,18 +1,21 @@
 import {
   BelongsTo,
   Column,
-  DataType, ForeignKey,
+  DataType,
+  ForeignKey,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { User } from 'src/users/user.model';
+import { Message } from '../message/message.model';
 
 interface SessionCreationAttributes {
-  TitleCourse: string,
-  TitleSession: string,
-  year: number,
-  month: number,
-  day: number,
+  TitleCourse: string;
+  TitleSession: string;
+  year: number;
+  month: number;
+  day: number;
 }
 
 @Table({ tableName: 'session' })
@@ -39,7 +42,7 @@ export class Session extends Model<Session, SessionCreationAttributes> {
 
   @Column({
     type: DataType.STRING,
-    defaultValue: "In Proccess",
+    defaultValue: 'In Proccess',
     allowNull: true,
   })
   status: string;
@@ -82,4 +85,7 @@ export class Session extends Model<Session, SessionCreationAttributes> {
 
   @BelongsTo(() => User)
   user: User;
+
+  @HasMany(() => Message, { onDelete: 'cascade' })
+  messages: Message[];
 }

@@ -2,5 +2,6 @@
 /client/node_modules/
 /client/public/
 /server/build/
+/server/dist/
 /server/node_modules/
 /.idea

@@ -8,7 +8,12 @@ import { Role } from './roles/role.model';
 import { UserRoles } from './roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
 import { SessionModule } from './session/session.module';
-import {Session} from "./session/session.model";
+import { Session } from './session/session.model';
+import { MessageModule } from './message/message.module';
+import { Message } from './message/message.model';
+import { EventEmitter } from 'events';
+import { NestEmitterModule } from 'nest-emitter';
+import {MessageGateway} from "./message.gateway";
 
 @Module({
   controllers: [],
@@ -24,7 +29,7 @@ import {Session} from "./session/session.model";
       username: process.env.PG_USER,
       password: process.env.PG_PASSWORD,
       database: process.env.PG_DB,
-      models: [User, Role, UserRoles, Session],
+      models: [User, Role, UserRoles, Session, Message],
       autoLoadModels: true,
       synchronize: true,
     }),
@@ -32,6 +37,9 @@ import {Session} from "./session/session.model";
     RolesModule,
     AuthModule,
     SessionModule,
+    MessageModule,
+    MessageGateway,
+    NestEmitterModule.forRoot(new EventEmitter())
   ],
 })
 export class AppModule {}

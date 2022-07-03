@@ -13,13 +13,15 @@ const session_service_1 = require("./session.service");
 const sequelize_1 = require("@nestjs/sequelize");
 const user_model_1 = require("../users/user.model");
 const session_model_1 = require("./session.model");
+const message_model_1 = require("../message/message.model");
+const auth_module_1 = require("./../auth/auth.module");
 let SessionModule = class SessionModule {
 };
 SessionModule = __decorate([
     (0, common_1.Module)({
         controllers: [session_controller_1.SessionController],
         providers: [session_service_1.SessionService],
-        imports: [sequelize_1.SequelizeModule.forFeature([user_model_1.User, session_model_1.Session])]
+        imports: [sequelize_1.SequelizeModule.forFeature([user_model_1.User, session_model_1.Session, message_model_1.Message]), auth_module_1.AuthModule],
     })
 ], SessionModule);
 exports.SessionModule = SessionModule;

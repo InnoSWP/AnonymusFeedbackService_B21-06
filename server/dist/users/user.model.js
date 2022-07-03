@@ -14,6 +14,7 @@ const sequelize_typescript_1 = require("sequelize-typescript");
 const user_roles_model_1 = require("../roles/user-roles.model");
 const role_model_1 = require("../roles/role.model");
 const session_model_1 = require("../session/session.model");
+const message_model_1 = require("../message/message.model");
 let User = class User extends sequelize_typescript_1.Model {
 };
 __decorate([
@@ -50,7 +51,7 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({
         type: sequelize_typescript_1.DataType.STRING,
-        defaultValue: "Anonimus",
+        defaultValue: 'Anonimus',
         allowNull: true,
     }),
     __metadata("design:type", String)
@@ -69,6 +70,10 @@ __decorate([
     (0, sequelize_typescript_1.HasMany)(() => session_model_1.Session),
     __metadata("design:type", Array)
 ], User.prototype, "sessions", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => message_model_1.Message),
+    __metadata("design:type", Array)
+], User.prototype, "messages", void 0);
 User = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: 'users' })
 ], User);

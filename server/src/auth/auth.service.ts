@@ -1,4 +1,9 @@
-import { HttpException, HttpStatus, Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from 'src/users/user.model';
 import { UsersService } from '../users/users.service';
@@ -15,9 +20,8 @@ export class AuthService {
   ) {}
 
   async login(dto: LoginUserDto) {
-    console.log("here")
-    const user = await this.validateUser(dto)
-    return this.generateToken(user)
+    const user = await this.validateUser(dto);
+    return this.generateToken(user);
   }
 
   async registration(dto: LoginUserDto) {
@@ -38,12 +42,12 @@ export class AuthService {
 
   async isTokenValid(token: string) {
     try {
-      const user = this.jwtService.verify(token, {secret: process.env.SECRET_KEY})
+      const user = this.jwtService.verify(token);
       if (user.email) {
-        return {isAuth: true}
+        return { isAuth: true };
       }
     } catch (e) {
-      return {isAuth: false}
+      return { isAuth: false };
     }
   }
 
@@ -59,12 +63,19 @@ export class AuthService {
   private async validateUser(userDto: LoginUserDto) {
     const user = await this.usersService.getUserByEmail(userDto.email);
     if (!user) {
-      throw new UnauthorizedException({message: 'Некорректный емайл или пароль'})
+      throw new UnauthorizedException({
+        message: 'Некорректный емайл или пароль',
+      });
     }
-    const passwordEquals = await bcrypt.compare(userDto.password, user.password);
+    const passwordEquals = await bcrypt.compare(
+      userDto.password,
+      user.password,
+    );
     if (user && passwordEquals) {
       return user;
     }
-    throw new UnauthorizedException({message: 'Некорректный емайл или пароль'})
+    throw new UnauthorizedException({
+      message: 'Некорректный емайл или пароль',
+    });
   }
 }
