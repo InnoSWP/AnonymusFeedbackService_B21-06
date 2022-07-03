@@ -14,6 +14,9 @@ export interface IListElem {
   year: number;
   month: number;
   day: number;
+  start?: string;
+  end?: string;
+  status?: string;
 }
 
 const LkSessionsList = () => {
