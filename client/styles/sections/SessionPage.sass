@@ -48,14 +48,31 @@
         margin-right: calc(#{$px20} * 1)
         font-weight: 500
 
+    .copy
+      img
+        width: calc(#{$px20} * 1.5)
+        height: calc(#{$px20} * 1.5)
+        cursor: pointer
+
     .FeedbackTitle
       margin-top: calc(#{$px20} * 4)
       font-size: $px24
       font-weight: 700
 
+    .NoMessages
+      display: block
+      font-size: $px24
+      margin-top: calc(#{$px24} * 2)
+
+    button.CloseSession
+      @include oftenBtn
+      margin-bottom: calc(#{$px20})
+      margin-top: calc(#{$px12})
+
     .FeedbackListWrapper
       li.LkSessionListElem
         margin-bottom: $px14
+
         &:last-child
           margin-bottom: 0
         > div
@@ -167,4 +184,11 @@
         background-color: $accentSecond
         margin-left: auto
 
+.StarsForProfessor
+  display: block
+  margin-bottom: $px24
+  font-weight: 600
+  color: $accentSecond
 
+.StartsElem
+  color: $accentSecond

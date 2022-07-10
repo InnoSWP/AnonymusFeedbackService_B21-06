@@ -42,7 +42,7 @@ export class Session extends Model<Session, SessionCreationAttributes> {
 
   @Column({
     type: DataType.STRING,
-    defaultValue: 'In Proccess',
+    defaultValue: 'In progress',
     allowNull: true,
   })
   status: string;

@@ -19,6 +19,7 @@ export class MessageController {
   @Post('/')
   create(@Body() dto: TakeMessageDto, @Req() req: Express.Request) {
     const message = new MessageDto(Object.assign({ userId: dto.userId }, dto));
+    console.log(message)
     return this.messageService.create(message)
   }
 

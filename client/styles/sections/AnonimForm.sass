@@ -35,6 +35,52 @@ $ls: 65%
         display: block
     .RightSide
       width: calc(97% - #{$ls})
+      h2
+        display: flex
+        align-items: center
+        margin-bottom: $px20
+        font-size: $px24
+        span
+          display: block
+          &:first-child
+            margin-right: 15px
+          &:last-child
+            font-weight: 700
+      .dateWrap
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        span
+          &:first-child
+            margin-right: calc(#{$px20} * 1)
+            font-weight: 500
+        p.date, p.time
+          display: block
+          margin-top: calc(#{$px20} * 2)
+          font-size: $px20
+          font-weight: 600
+        p.time
+
+      p.status
+        font-size: $px20
+        margin-top: calc(#{$px20} * 1.4)
+        display: flex
+        align-items: center
+        font-weight: 600
+        span
+          margin-right: calc(#{$px20} * 1)
+          font-weight: 500
+
+      .copy
+        img
+          width: calc(#{$px20} * 1.5)
+          height: calc(#{$px20} * 1.5)
+          cursor: pointer
+
+      .FeedbackTitle
+        margin-top: calc(#{$px20} * 4)
+        font-size: $px24
+        font-weight: 700
 
 
 .MyMessages
@@ -45,15 +91,23 @@ $ls: 65%
   border-radius: calc(#{$index} * 0.66)
   display: flex
   justify-content: space-between
+  max-height: 40%
+  overflow-y: auto
   ul
     width: 100%
     li
+      &:last-child
       border-radius: calc(#{$index} * 0.46)
-      padding: calc(#{$index} * .5)
+      padding: calc(#{$index} * 0.5)
       background: $accentSecond
+      margin-bottom: calc(#{$index} * 1.5)
       color: #fff
       width: 60%
-
+      &.professor
+        margin-left: auto
+        background-color: $accent
+        color: #000
+        text-align: right
 
 
 .NamePopupWrapper
@@ -89,3 +143,43 @@ $ls: 65%
         &:first-child
           margin-right: $px20
         @include oftenBtn
+
+.PushPopup
+  width: 25vw
+  height: 10vh
+  top: inherit
+  left: inherit
+  bottom: 0
+  right: 0
+  border-radius: calc(#{$index} * 0.66)
+  display: flex
+  align-items: center
+  .NamePopup
+    width: 100%
+    height: 100%
+    background-color: $accentSecond
+    padding: calc(#{$index} * 0.66)
+    color: #fff
+    text-align: center
+    h3
+      display: block
+      margin: auto
+      font-size: $px14
+
+span.FastReactionsSpan
+  font-size: $px16
+  font-weight: 700
+  display: block
+  margin-top: calc(#{$index} * 1.6)
+
+.FastReactions
+  display: flex
+  flex-wrap: wrap
+  margin-top: calc(#{$index} * .6)
+  li
+    padding: calc(#{$index} * 0.6)
+    border-radius: calc(#{$index} * 0.6)
+    background-color: $accent
+    margin-right: $px14
+    margin-bottom: $px14
+    cursor: pointer

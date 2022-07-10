@@ -15,6 +15,7 @@ interface MessageCreationAttributes {
   userId?: number;
   anonim?: number;
   anonimName?: string;
+  rate?: number;
 }
 
 @Table({ tableName: 'message' })
@@ -38,6 +39,12 @@ export class Message extends Model<Message, MessageCreationAttributes> {
     allowNull: true,
   })
   anonim: number;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: true,
+  })
+  rate: number;
 
   @Column({
     type: DataType.STRING,
